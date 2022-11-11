@@ -35,15 +35,25 @@ let pushShift = () => {
         Math.random() * Math.PI,
         Math.random() * Math.PI * 2,
         (Math.random() * 0.9 + 0.1) * Math.PI * 0.1,
-        Math.random() * 0.9 + 0.1,
+        Math.random() * 0.9 + 0.1
     );
 };
+
+//helper
+const axesHelper = new THREE.AxesHelper(50);
+scene.add(axesHelper);
+const size = 100;
+const divisions = 50;
+const gridHelper = new THREE.GridHelper(size, divisions);
+scene.add(gridHelper);
+//
 
 let pts = new Array(25000).fill().map((p) => {
     sizes.push(Math.random() * 1.5 + 0.5);
     pushShift();
     return new THREE.Vector3().randomDirection().multiplyScalar(Math.random() * 0.5 + 9.5);
 });
+
 for (let i = 0; i < 50000; i++) {
     let r = 10,
         R = 40;
@@ -120,6 +130,6 @@ renderer.setAnimationLoop(() => {
     controls.update();
     let t = clock.getElapsedTime() * 0.5;
     gu.time.value = t * Math.PI;
-    p.rotation.y = t * 0.05;
+    p.rotation.y = t * 0.1;
     renderer.render(scene, camera);
 });
