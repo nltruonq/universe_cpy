@@ -40,12 +40,12 @@ let pushShift = () => {
 };
 
 //helper
-const axesHelper = new THREE.AxesHelper(50);
-scene.add(axesHelper);
-const size = 100;
-const divisions = 50;
-const gridHelper = new THREE.GridHelper(size, divisions);
-scene.add(gridHelper);
+// const axesHelper = new THREE.AxesHelper(50);
+// scene.add(axesHelper);
+// const size = 100;
+// const divisions = 50;
+// const gridHelper = new THREE.GridHelper(size, divisions);
+// scene.add(gridHelper);
 //
 
 let pts = new Array(25000).fill().map((p) => {
